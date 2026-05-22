@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #f3fadc;
+  --beige: #e5d3b3;
+  --taupe: #b08e75;
+  --brown: #8b6f5c;
+  --brown-dark: #6b5344;
+  --gold: #c9a86c;
+  --text: #3d3429;
+  --text-muted: #5c5248;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--cream);
+  --color-beige: var(--beige);
+  --color-taupe: var(--taupe);
+  --color-brown: var(--brown);
+  --color-brown-dark: var(--brown-dark);
+  --color-gold: var(--gold);
+  --color-wedding-text: var(--text);
+  --color-wedding-muted: var(--text-muted);
+  --font-script: var(--font-great-vibes);
+  --font-body: var(--font-montserrat);
+  --font-arabic: var(--font-amiri);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ebe4d8;
+  color: var(--text);
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+}
+
+.font-script {
+  font-family: var(--font-great-vibes), cursive;
+}
+
+.font-arabic {
+  font-family: var(--font-amiri), serif;
+}
+
+.invitation-shell {
+  background-color: var(--cream);
+  background-image: url('/element/Background_Fix.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 0 0 1px rgb(139 111 92 / 8%),
+    0 25px 50px -12px rgb(61 52 41 / 18%);
+}
+
+@media (min-width: 768px) {
+  .invitation-shell {
+    border-radius: 1.25rem;
+    overflow: hidden;
+  }
+}
+
+.paper-texture {
+  background-color: var(--cream);
+  background-image: url('/element/Background_Fix.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ornament-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--beige) 20%,
+    var(--taupe) 50%,
+    var(--beige) 80%,
+    transparent 100%
+  );
+}
+
+.countdown-box {
+  background: linear-gradient(165deg, #d4bc9a 0%, #a8896e 55%, #967a62 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 22%),
+    0 4px 14px rgb(107 83 68 / 22%);
+}
+
+.event-card {
+  background: linear-gradient(180deg, #ffffff 0%, #f3fadc 100%);
+  box-shadow:
+    0 4px 24px rgb(61 52 41 / 8%),
+    0 1px 0 rgb(229 211 179 / 60%) inset;
+}
+
+.event-card-splash {
+  background-image: radial-gradient(
+    ellipse 70% 60% at 50% 35%,
+    rgb(229 211 179 / 55%) 0%,
+    transparent 72%
+  );
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #b8987a 0%, #967a62 100%);
+  box-shadow: 0 4px 14px rgb(107 83 68 / 28%);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgb(107 83 68 / 35%);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+}
+
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .gallery-grid .gallery-span-full {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-grid .gallery-span-2 {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 641px) {
+  .gallery-grid .gallery-span-full {
+    grid-column: 1 / -1;
+  }
+
+  .gallery-grid .gallery-span-2 {
+    grid-column: span 2;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 3s ease-in-out infinite;
 }
