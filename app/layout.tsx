@@ -21,9 +21,9 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: "The Wedding Of Qurthubi & Narita",
+  title: "Ngunduh Mantu Juniar & Geulis",
   description:
-    "Undangan digital pernikahan Muhammad Qurthubi & Raysa Narita Devi Cahyani",
+    "Undangan digital Ngunduh Mantu Juniar & Geulis",
 };
 
 export default function RootLayout({
