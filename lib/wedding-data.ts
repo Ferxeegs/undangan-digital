@@ -34,7 +34,7 @@ export const WEDDING = {
   events: {
     akad: {
       title: "Ngunduh Mantu",
-      date: "Sabtu, 07 Juni 2026",
+      date: "Minggu, 07 Juni 2026",
       time: "Pukul 15.00 - 17.30 WIB",
       location: "Gama Candi Resto BSB City\nJl. West CBD 1 No.3, BSB City, Semarang",
       mapsUrl: "https://maps.app.goo.gl/UdM1RVa8ekcu8g9aA",
