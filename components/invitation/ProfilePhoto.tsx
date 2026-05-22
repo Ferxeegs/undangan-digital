@@ -21,7 +21,7 @@ export function ProfilePhoto({
 
   return (
     <motion.div
-      className={`relative mx-auto ${dim}`}
+      className={`relative z-10 mx-auto ${dim}`}
       initial={{ opacity: 0, x: from === "left" ? -40 : 40, scale: 0.92 }}
       whileInView={{ opacity: 1, x: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}

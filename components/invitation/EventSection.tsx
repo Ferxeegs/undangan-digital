@@ -53,7 +53,7 @@ function EventCard({
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
 
-        <p className="mt-1.5 text-xs leading-relaxed text-wedding-text max-w-xs font-semibold sm:text-sm">
+        <p className="mt-1.5 text-xs leading-relaxed text-wedding-text max-w-xs font-semibold sm:text-sm whitespace-pre-line">
           {location}
         </p>
       </div>
@@ -113,7 +113,7 @@ export function EventSection() {
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-black/55" />
-        <svg
+        {/* <svg
           className="absolute top-0 z-10 w-full text-cream"
           viewBox="0 0 1440 60"
           preserveAspectRatio="none"
@@ -123,7 +123,7 @@ export function EventSection() {
             fill="currentColor"
             d="M0,0 C360,60 720,0 1080,30 C1260,45 1380,50 1440,40 L1440,0 Z"
           />
-        </svg>
+        </svg> */}
         <motion.h2
           className="font-script absolute inset-0 z-10 flex items-center justify-center text-4xl text-white drop-shadow-lg sm:text-5xl md:text-6xl"
           initial={{ opacity: 0, y: 24 }}

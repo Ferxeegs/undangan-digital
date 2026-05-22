@@ -13,8 +13,18 @@ export function HeroSection() {
       id="home"
       className="paper-texture relative flex min-h-screen scroll-mt-4 flex-col items-center justify-center px-4 pb-32 pt-12 sm:px-6 sm:pt-16 overflow-hidden"
     >
+      {/* Background Static Image */}
+      <div className="absolute inset-0 -z-10 select-none pointer-events-none">
+        <Image
+          src="/element/3.jpeg"
+          alt="Latar Belakang Hero"
+          fill
+          className="object-cover object-center opacity-90"
+          priority
+        />
+      </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-lg flex-col items-center text-center">
+      <div className="relative z-10 mx-auto flex w-full max-w-xl flex-col items-center text-center">
         <motion.div
           className="relative mb-10 h-44 w-44 sm:h-52 sm:w-52"
           initial={{ opacity: 0, scale: 0.75 }}
@@ -29,6 +39,7 @@ export function HeroSection() {
               fill
               className="object-contain"
               priority
+              sizes="(max-width: 640px) 216px, 248px"
             />
           </div>
           <div className="relative h-full w-full overflow-hidden rounded-full shadow-lg">
@@ -52,7 +63,7 @@ export function HeroSection() {
           Ngunduh Mantu
         </motion.p>
         <motion.h1
-          className="font-script mt-1 bg-gradient-to-b from-brown-dark via-brown to-gold bg-clip-text text-4xl leading-tight text-transparent sm:text-5xl md:text-6xl drop-shadow-sm font-bold"
+          className="font-script mt-1 bg-gradient-to-b from-brown-dark via-brown to-gold bg-clip-text text-4xl leading-normal text-transparent sm:text-5xl md:text-6xl drop-shadow-sm font-bold px-6 py-3"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...easeOut, delay: 0.5 }}
@@ -67,33 +78,27 @@ export function HeroSection() {
           transition={{ delay: 0.65, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         />
 
-        <motion.p
-          className="font-arabic max-w-md text-lg leading-loose text-wedding-text sm:text-xl drop-shadow-sm"
-          dir="rtl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.75, duration: 0.8 }}
-        >
-          {WEDDING.verse.arabic}
-        </motion.p>
-        <motion.p
-          className="mt-5 max-w-md px-3 text-xs leading-relaxed text-wedding-muted sm:text-sm"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.div
+          className="my-8 w-full max-w-md rounded-2xl border border-gold/20 bg-white/80 p-6 shadow-xl backdrop-blur-md flex flex-col items-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 0.8, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1, ...easeOut }}
+          transition={{ delay: 0.7, ...easeOut }}
         >
-          {WEDDING.verse.translation}
-        </motion.p>
-        <motion.p
-          className="mt-4 text-xs font-bold tracking-widest text-brown sm:text-sm"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, ...easeOut }}
-        >
-          — {WEDDING.verse.reference} —
-        </motion.p>
+          <p
+            className="font-arabic text-lg leading-loose text-brown-dark sm:text-xl text-center"
+            dir="rtl"
+          >
+            {WEDDING.verse.arabic}
+          </p>
+          <div className="my-4 h-px w-20 bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+          <p className="max-w-sm px-2 text-center text-xs leading-relaxed text-wedding-muted sm:text-sm">
+            {WEDDING.verse.translation}
+          </p>
+          <p className="mt-4 text-center text-xs font-bold tracking-widest text-brown sm:text-sm">
+            — {WEDDING.verse.reference} —
+          </p>
+        </motion.div>
 
         <div className="mt-12 w-full flex justify-center">
           <Countdown />

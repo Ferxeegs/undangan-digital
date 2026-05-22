@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { WEDDING } from "@/lib/wedding-data";
 
+
 export function GallerySection() {
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
 
@@ -19,6 +20,7 @@ export function GallerySection() {
       prev === null ? null : (prev + 1) % WEDDING.gallery.length
     );
   }
+
 
   // Keyboard navigation for Lightbox
   useEffect(() => {
@@ -37,8 +39,9 @@ export function GallerySection() {
   return (
     <section
       id="gallery"
-      className="scroll-mt-4 bg-gradient-to-b from-taupe to-brown-dark/95 px-3 py-16 pb-44 sm:px-6 sm:py-20"
+      className="relative scroll-mt-4 overflow-hidden px-3 py-16 pb-44 sm:px-6 sm:py-20"
     >
+
       <motion.h2
         className="font-script mb-2 text-center text-4xl text-white drop-shadow-md sm:text-5xl font-bold"
         initial={{ opacity: 0, y: 20 }}
@@ -74,9 +77,9 @@ export function GallerySection() {
       >
         {WEDDING.gallery.map((item, i) => {
           const spanClass =
-            item.span === "col-span-full"
+            (item.span as string) === "col-span-full"
               ? "gallery-span-full"
-              : item.span === "col-span-2"
+              : (item.span as string) === "col-span-2"
                 ? "gallery-span-2"
                 : "";
 

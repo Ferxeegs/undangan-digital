@@ -108,7 +108,7 @@ export function BottomNav({ isMusicPlaying, toggleMusic, isOpen }: BottomNavProp
           exit={{ y: 80, opacity: 0 }}
           transition={{ type: "spring", stiffness: 140, damping: 20, delay: 0.1 }}
         >
-          <div className="flex w-full max-w-lg items-center justify-between gap-1 rounded-2xl border border-white/10 bg-taupe/95 px-3 py-2.5 shadow-2xl backdrop-blur-md sm:gap-2 sm:px-5 sm:py-3">
+          <div className="flex w-full max-w-lg items-center justify-between gap-1 rounded-2xl border border-gold/15 bg-white/90 px-3 py-2.5 shadow-2xl backdrop-blur-md sm:gap-2 sm:px-5 sm:py-3">
             {NAV_ITEMS.map(({ id, label, icon }) => {
               const isActive = active === id;
               return (
@@ -124,7 +124,7 @@ export function BottomNav({ isMusicPlaying, toggleMusic, isOpen }: BottomNavProp
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 rounded-xl bg-cream/20"
+                      className="absolute inset-0 rounded-xl bg-gold/10"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -134,7 +134,7 @@ export function BottomNav({ isMusicPlaying, toggleMusic, isOpen }: BottomNavProp
                   )}
                   <svg
                     className={`relative h-5 w-5 transition-colors sm:h-6 sm:w-6 ${
-                      isActive ? "text-cream" : "text-cream/60 hover:text-cream/90"
+                      isActive ? "text-gold" : "text-brown/50 hover:text-brown/80"
                     }`}
                     fill="none"
                     viewBox="0 0 24 24"

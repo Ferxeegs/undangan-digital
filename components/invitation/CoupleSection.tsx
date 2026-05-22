@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { WEDDING } from "@/lib/wedding-data";
 import { ProfilePhoto } from "./ProfilePhoto";
@@ -9,8 +10,17 @@ export function CoupleSection() {
   return (
     <section
       id="couple"
-      className="paper-texture relative scroll-mt-4 px-4 pb-40 pt-14 sm:px-6 sm:pt-20"
+      className="paper-texture relative scroll-mt-4 px-4 pb-40 pt-14 sm:px-6 sm:pt-20 overflow-hidden"
     >
+      {/* Background Static Image */}
+      <div className="absolute inset-0 -z-10 select-none pointer-events-none">
+        <Image
+          src="/element/9.jpg"
+          alt="Latar Belakang Couple"
+          fill
+          className="object-cover object-center opacity-90"
+        />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-lg text-center">
         <ScrollReveal>
@@ -33,13 +43,26 @@ export function CoupleSection() {
           <StaggerItem className="bg-white/85 border border-gold/20 shadow-[0_10px_25px_rgba(139,111,92,0.06)] rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col items-center">
             {/* Elegant double-line border inside card */}
             <div className="absolute inset-3 border border-gold/10 rounded-2xl pointer-events-none" />
+
+            {/* Background Accent Cipratan */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-100 z-0">
+              <div className="relative w-[95%] h-[95%] sm:w-[200%] sm:h-[200%]">
+                <Image
+                  src="/element/Cipratan.png"
+                  alt="Aksen Cipratan"
+                  fill
+                  className="object-contain filter saturate-200 contrast-125 brightness-85"
+                />
+              </div>
+            </div>
+
             <ProfilePhoto
               src="/element/laki.jpeg"
               alt={WEDDING.groom.name}
               size="sm"
               from="left"
             />
-            <h2 className="font-script mt-6 px-2 text-2xl leading-snug text-brown sm:text-[1.75rem] font-bold text-center">
+            <h2 className="font-script mt-6 px-2 text-2xl leading-snug text-brown sm:text-[1.75rem] font-bold text-center relative z-10">
               {WEDDING.groom.name}
             </h2>
             <div className="mt-4 space-y-1.5 text-xs text-wedding-muted sm:text-sm text-center relative z-10 font-medium flex flex-col items-center">
@@ -74,7 +97,7 @@ export function CoupleSection() {
               <div className="w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
             </div>
             <motion.div
-              className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-cream border border-gold/30 shadow-md font-script text-4xl text-brown sm:text-5xl"
+              className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-white/70 border border-gold/30 shadow-md font-script text-4xl text-brown sm:text-5xl"
               initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               viewport={{ once: true }}
@@ -97,13 +120,26 @@ export function CoupleSection() {
           <StaggerItem className="bg-white/85 border border-gold/20 shadow-[0_10px_25px_rgba(139,111,92,0.06)] rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col items-center">
             {/* Elegant double-line border inside card */}
             <div className="absolute inset-3 border border-gold/10 rounded-2xl pointer-events-none" />
+
+            {/* Background Accent Cipratan */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-100 z-0">
+              <div className="relative w-[95%] h-[95%] sm:w-[200%] sm:h-[200%]">
+                <Image
+                  src="/element/Cipratan.png"
+                  alt="Aksen Cipratan"
+                  fill
+                  className="object-contain filter saturate-200 contrast-125 brightness-85"
+                />
+              </div>
+            </div>
+
             <ProfilePhoto
               src="/element/wanita.jpeg"
               alt={WEDDING.bride.name}
               size="sm"
               from="right"
             />
-            <h2 className="font-script mt-6 px-2 text-2xl leading-snug text-brown sm:text-[1.75rem] font-bold text-center">
+            <h2 className="font-script mt-6 px-2 text-2xl leading-snug text-brown sm:text-[1.75rem] font-bold text-center relative z-10">
               {WEDDING.bride.name}
             </h2>
             <div className="mt-4 space-y-1.5 text-xs text-wedding-muted sm:text-sm text-center relative z-10 font-medium flex flex-col items-center">
@@ -135,7 +171,7 @@ export function CoupleSection() {
         </StaggerReveal>
       </div>
 
-      <motion.div
+      {/* <motion.div
         className="pointer-events-none absolute bottom-0 left-0 right-0 overflow-hidden"
         initial={{ y: 40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -164,7 +200,7 @@ export function CoupleSection() {
             d="M0,40 C360,80 720,0 1080,32 C1260,48 1380,56 1440,48 L1440,80 L0,80 Z"
           />
         </svg>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }

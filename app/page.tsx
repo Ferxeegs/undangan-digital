@@ -25,7 +25,7 @@ function SectionFlowers({ isOpen }: SectionFlowersProps) {
             whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="pointer-events-none absolute -left-4 -top-4 z-50 h-60 w-60 sm:h-80 sm:w-80 sm:-left-16 sm:-top-16"
+            className="pointer-events-none absolute -left-10 -top-10 z-50 h-48 w-48 sm:h-80 sm:w-80"
           >
             <Image
               src="/element/Bunga_Kiri_Atas.png"
@@ -42,7 +42,7 @@ function SectionFlowers({ isOpen }: SectionFlowersProps) {
             whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="pointer-events-none absolute -right-4 -top-4 z-50 h-60 w-60 sm:h-80 sm:w-80 sm:-right-16 sm:-top-16"
+            className="pointer-events-none absolute -right-10 -top-10 z-50 h-48 w-48 sm:h-80 sm:w-80"
           >
             <Image
               src="/element/Bunga_Kanan_Atas.png"
@@ -59,7 +59,7 @@ function SectionFlowers({ isOpen }: SectionFlowersProps) {
             whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-            className="pointer-events-none absolute -left-4 -bottom-4 z-50 h-60 w-60 sm:h-80 sm:w-80 sm:-left-16 sm:-bottom-16"
+            className="pointer-events-none absolute -left-10 -bottom-10 z-50 h-48 w-48 sm:h-80 sm:w-80"
           >
             <Image
               src="/element/Bunga_kiri_bawah.png"
@@ -75,7 +75,7 @@ function SectionFlowers({ isOpen }: SectionFlowersProps) {
             whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.45 }}
-            className="pointer-events-none absolute -right-4 -bottom-4 z-50 h-60 w-60 sm:h-80 sm:w-80 sm:-right-16 sm:-bottom-16"
+            className="pointer-events-none absolute -right-10 -bottom-10 z-50 h-48 w-48 sm:h-80 sm:w-80"
           >
             <Image
               src="/element/Bunga_Kanan_Bawah.png"
@@ -90,10 +90,31 @@ function SectionFlowers({ isOpen }: SectionFlowersProps) {
   );
 }
 
+const BACKGROUND_IMAGES = [
+  "/element/1.jpeg",
+  "/element/2.jpeg",
+  "/element/3.jpeg",
+  "/element/4.jpeg",
+  "/element/5.jpeg",
+  "/element/6.jpeg",
+  "/element/7.jpeg",
+  "/element/8.jpeg",
+];
+
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const [bgIndex, setBgIndex] = useState(0);
+
+  // Background Slideshow Interval (3 seconds per image)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Lock body scroll when cover is closed
   useEffect(() => {
@@ -136,7 +157,7 @@ export default function Home() {
       {/* Audio Element */}
       <audio
         ref={audioRef}
-        src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3"
+        src="/music/All_Of_Me_Soul.mp3"
         loop
         preload="auto"
       />
@@ -147,35 +168,52 @@ export default function Home() {
         )}
       </AnimatePresence>
 
+      {/* Global Background Slideshow */}
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-2xl -z-10 select-none pointer-events-none overflow-hidden">
+            {BACKGROUND_IMAGES.map((src, index) => (
+              <motion.div
+                key={src}
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${src})` }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: bgIndex === index ? 0.9 : 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+              />
+            ))}
+          </div>
+        )}
+      </AnimatePresence>
+
       <motion.div
-        className="invitation-shell mx-auto min-h-screen w-full max-w-2xl relative overflow-hidden"
+        className="invitation-shell mx-auto min-h-screen w-full max-w-2xl relative overflow-hidden isolate"
         initial={{ opacity: 0, scale: 0.98 }}
         animate={isOpen ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
+        <SectionFlowers isOpen={isOpen} />
+
         <main>
           {/* Section 1: Hero */}
           <div className="relative">
-            <SectionFlowers isOpen={isOpen} />
             <HeroSection />
           </div>
 
           {/* Section 2: Couple */}
           <div className="relative">
-            <SectionFlowers isOpen={isOpen} />
             <CoupleSection />
           </div>
 
           {/* Section 3: Event */}
           <div className="relative">
-            <SectionFlowers isOpen={isOpen} />
             <EventSection />
           </div>
 
           {/* Section 4: Gallery */}
           <div className="relative">
-            <SectionFlowers isOpen={isOpen} />
             <GallerySection />
           </div>
         </main>

@@ -26,7 +26,15 @@
 }
 
 body {
-  background: #ebe4d8;
+  background-color: #e5e3df;
+  background-image: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.25) 0%, rgba(139, 111, 92, 0.08) 100%),
+    url('/element/Background_1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
   color: var(--text);
   font-family: var(--font-montserrat), system-ui, sans-serif;
 }
@@ -40,11 +48,8 @@ body {
 }
 
 .invitation-shell {
-  background-color: var(--cream);
-  background-image: url('/element/Background_Fix.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: transparent;
+  background-image: none;
   box-shadow:
     0 0 0 1px rgb(139 111 92 / 8%),
     0 25px 50px -12px rgb(61 52 41 / 18%);
@@ -63,6 +68,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.invitation-shell .paper-texture {
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
 .ornament-line {
