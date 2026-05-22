@@ -72,13 +72,13 @@ export function OpeningCover({ onOpen }: OpeningCoverProps) {
 
       {/* Floating elegant light particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-        <motion.div 
+        <motion.div
           className="absolute h-44 w-44 rounded-full bg-gold/10 blur-[80px]"
           animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           style={{ top: "10%", left: "10%" }}
         />
-        <motion.div 
+        <motion.div
           className="absolute h-44 w-44 rounded-full bg-taupe/10 blur-[80px]"
           animate={{ x: [0, -30, 0], y: [0, -40, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
@@ -117,7 +117,7 @@ export function OpeningCover({ onOpen }: OpeningCoverProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.35 }}
         >
-          Undangan Pernikahan
+          Undangan Ngunduh Mantu
         </motion.p>
         <motion.h1
           className="font-script mt-2 text-5xl text-brown-dark sm:text-6xl drop-shadow-sm px-4 py-2"
@@ -166,10 +166,10 @@ export function OpeningCover({ onOpen }: OpeningCoverProps) {
           >
             <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative flex items-center justify-center gap-2">
-              <svg 
-                className="w-4 h-4 animate-bounce" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                className="w-4 h-4 animate-bounce"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
